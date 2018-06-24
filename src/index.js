@@ -34,10 +34,11 @@ const data2 = [
     }
 ]
 
+const deepData = {sodeep: 9};
 
 let obj = ReactDOM.render(<Items items={data} />, document.getElementById('root'));
 registerServiceWorker();
 window.addEventListener("click", () => {
     console.log("big click")
-    obj.handleNewData(data2)
+    obj.handleNewData(data2, deepData)
 });

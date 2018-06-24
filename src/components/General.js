@@ -14,22 +14,37 @@ class Item extends React.Component{
     };
 }
 
+class Deep extends React.Component {
+    render(){
+        return(
+            <h1>{this.props.deepState.sodeep}</h1>
+        );
+    }
+}
 
 class Items extends React.Component {
     constructor(props){
         super(props);
-        this.state = {items: this.props.items};
+        this.state = {
+            items: this.props.items,
+            deepState: 0
+        };
     }
 
-    handleNewData(newItems){
-        this.setState({items: newItems});
+    handleNewData(newItems, deepState){
+        this.setState({items: newItems, deepState: deepState});
     }
 
     render(){
         const itemList = this.state.items.map(item =>
             <Item key={item.id} item={item} />
         );
-        return <span>{itemList}</span>;
+        return (
+            <span>
+                <span>{itemList}</span>
+                <Deep deepState={this.state.deepState} />
+            </span>
+        );
     }
 }
 
