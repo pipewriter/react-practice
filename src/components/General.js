@@ -14,11 +14,23 @@ class Item extends React.Component{
     };
 }
 
-let Items = (props) => {
-    const itemList = props.items.map(item =>
+
+class Items extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {items: this.props.items};
+    }
+
+    handleNewData(newItems){
+        this.setState({items: newItems});
+    }
+
+    render(){
+        const itemList = this.state.items.map(item =>
             <Item key={item.id} item={item} />
         );
-    return itemList;
+        return <span>{itemList}</span>;
+    }
 }
 
-export default {Item, Items};
+export {Item, Items};

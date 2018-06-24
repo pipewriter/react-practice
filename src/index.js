@@ -19,5 +19,25 @@ const data = [
     }
   ]
 
-ReactDOM.render(<Items items={data} />, document.getElementById('root'));
+const data2 = [
+    {
+        tag: 'butt',
+        price: 5, 
+        date: 'may 5',
+        id: 3
+    },
+    {
+        tag: 'pizza2',
+        price: 10, 
+        date: 'jun 1',
+        id: 1
+    }
+]
+
+
+let obj = ReactDOM.render(<Items items={data} />, document.getElementById('root'));
 registerServiceWorker();
+window.addEventListener("click", () => {
+    console.log("big click")
+    obj.handleNewData(data2)
+});
