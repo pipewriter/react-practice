@@ -34,11 +34,44 @@ const data2 = [
     }
 ]
 
-const deepData = {sodeep: 9};
+const userData = {
+    budgetName: 'myBudget',
+    startDate: {
+        day: 1,
+        month: 6,
+        year: 2018,
+        zone: 4
+    },
+    uid: 'big-butts-dont-lie',
+    items: [
+        {
+            tag: 'pizza',
+            price: 5.01,
+            date: {
+                day: 1,
+                month: 7,
+                year: 2018,
+                zone: 4
+            },
+            id: 1
+        },
+        {
+            tag: 'tacos',
+            price: 3,
+            date: {
+                day: 2,
+                month: 7,
+                year: 2018,
+                zone: 4
+            },
+            id: 2
+        }
+    ]
+}
 
-let obj = ReactDOM.render(<Items items={data} />, document.getElementById('root'));
+ReactDOM.render(<Items items={data} />, document.getElementById('root'));
 registerServiceWorker();
 window.addEventListener("click", () => {
     console.log("big click")
-    obj.handleNewData(data2, deepData)
+    ReactDOM.render(<Items items={data2} />, document.getElementById('root'));
 });

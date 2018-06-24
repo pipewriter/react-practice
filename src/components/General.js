@@ -23,27 +23,12 @@ class Deep extends React.Component {
 }
 
 class Items extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            items: this.props.items,
-            deepState: 0
-        };
-    }
-
-    handleNewData(newItems, deepState){
-        this.setState({items: newItems, deepState: deepState});
-    }
-
     render(){
-        const itemList = this.state.items.map(item =>
+        const itemList = this.props.items.map(item =>
             <Item key={item.id} item={item} />
         );
         return (
-            <span>
-                <span>{itemList}</span>
-                <Deep deepState={this.state.deepState} />
-            </span>
+            <span>{itemList}</span>
         );
     }
 }
