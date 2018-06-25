@@ -42,7 +42,7 @@ const userData = {
         year: 2018,
         zone: 4
     },
-    uid: 'big-butts-dont-lie',
+    uid: 'example-uid-string',
     items: [
         {
             tag: 'pizza',
@@ -71,7 +71,3 @@ const userData = {
 
 ReactDOM.render(<Items items={data} />, document.getElementById('root'));
 registerServiceWorker();
-window.addEventListener("click", () => {
-    console.log("big click")
-    ReactDOM.render(<Items items={data2} />, document.getElementById('root'));
-});
