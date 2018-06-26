@@ -1,5 +1,10 @@
 import React from 'react';
+import Header from './FrontPage/Header';
+import Form from './FrontPage/Form';
 
 export default () => (
-    <h5>This is the Front Page</h5>
+    <React.Fragment>
+        <Header />
+        <Form />
+    </React.Fragment>
 )
