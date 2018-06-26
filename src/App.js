@@ -1,38 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import './App.css';
-import Items from './BudgetBatComponents';
+import Footer from './components/Common/Footer';
+import BudgetPage from './components/BudgetPage';
+import FrontPage from './components/FrontPage';
 
-const data = [
-  {
-    tag: 'pizza',
-    price: 3,
-    date: 'jun 1',
-    id: 1
-  },
-  {
-    tag: 'cake',
-    price: 10.11,
-    date: 'tuesday',
-    id: 2
-  }
-]
+let Butt = () => (
+  <div> bro what </div>
+)
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Items items={data} />
-      </div>
-    );
-  }
-}
+let NotFound = () => (
+  <span> 404 page not found </span>
+)
+
+let excel = (props) => (
+  <span> cool: {props.match.params.string2} </span>
+)
+
+let App = () => (
+  <BrowserRouter>
+    <React.Fragment>
+      <Switch> 
+        <Redirect exact from='/' to='/home'/>
+        <Route exact path='/home' component={FrontPage} />
+        <Route path='/budget/:account' component={BudgetPage} />
+        <Route component={NotFound} />
+      </Switch>
+      <Footer />
+    </React.Fragment>
+  </BrowserRouter>
+);
 
 export default App;
