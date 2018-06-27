@@ -6,31 +6,36 @@ let MonthOptions = Months.map((month, index) => (
     <option key={index} value={index+1}>{month}</option>
 ))
 
-let DateOptions = Array(31).map((val, index) => index + 1).map(day => (
-    <option key={day} value={day}>{day}</option> 
-));
+let DateOptions = [];
+for(let day = 1; day <= 31; day++){
+    DateOptions.push(
+        <option key={day} value={day}>{day}</option> 
+    )
+}
+let now = new Date();
 
-let nextYear = (new Date()).getFullYear() + 1;
+let nextYear = now.getFullYear() + 1;
 
 //builds an array from
 //2000, 2001, ... nextYear
-let YearOptions = Array(nextYear - 2000).map((val, index) =>(
-    2000 + index
-)).map(year => (
-    <option key={year} value={year}>{year}</option>
-));
-console.log(YearOptions)
+let YearOptions = [];
+for(let year = nextYear; year >= 2000; year--){
+    YearOptions.push(
+        <option key={year} value={year}>{year}</option>
+    )
+}
 
+let [currentYear, currentMonth, currentDate] = [now.getFullYear(), now.getMonth() + 1, now.getDate()];
 
-let DatePicker = (
+let DatePicker = () => (
     <div>
-        <select>
+        <select value={currentMonth}>
             {MonthOptions}
         </select>
-        <select>
+        <select value={currentDate}>
             {DateOptions}
         </select>
-        <select>
+        <select value={currentYear}>
             {YearOptions}
         </select>
     </div>
