@@ -9,3 +9,7 @@ export let getCurrentDate = () =>({
     year: currentYear,
     zone: currentZone
 });
+
+export let daysPassed = (startDate) => { 
+    
+}
