@@ -11,5 +11,6 @@ export let getCurrentDate = () =>({
 });
 
 export let daysPassed = (startDate) => { 
-    
+    let startDateMs = Date.UTC(startDate.month, startDate.month, startDate.date)
+    let currentDateMs 
 }
