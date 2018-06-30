@@ -1,22 +1,17 @@
 import React from 'react';
 import Field from '../Common/Field'
 import DateField from '../Common/DateField';
+import {getCurrentDate} from '../../utils/date';
 
-let now = new Date();
-let [currentYear, currentMonth, currentDate] = [now.getFullYear(), now.getMonth() + 1, now.getDate()];
-
+let initialState = {
+    budgetName: '',
+    startDate: getCurrentDate()
+}
 
 class Form extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            budgetName: 'Hello Mom',
-            startDate: {
-                date: 17,
-                month: 11,
-                year: 2019
-            }
-        }
+        this.state = initialState;
     }
     updateDate = (newDate) =>{
         this.setState({
@@ -32,6 +27,7 @@ class Form extends React.Component{
     }
     submit = () => {
         alert(JSON.stringify(this.state))
+        window.location='budget/testbudget'
     }
 
     render(){
