@@ -1,6 +1,7 @@
 import React from 'react';
 import DateDisplay from '../Common/DateDisplay';
 import ItemListing from './ItemListing';
+import { sortItemsIntoWeeks } from '../../utils/items';
 
 let Week = (props) => (
     <div>
@@ -12,10 +13,14 @@ let Week = (props) => (
     </div>
 )
 
-export default () => (
-    <div>
-        <Week />
-        <Week />
-        <Week />
-    </div>
-)
+export default (props) => {
+    sortItemsIntoWeeks(props.items)
+    return (
+        <div>
+            {props.items.map((item) => {
+                
+            })}
+            <Week />
+        </div>
+    )
+}

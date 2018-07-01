@@ -19,20 +19,21 @@ let account = {
         {
             tag: 'pizza',
             price: 5.01,
+            id: 1,
             date: {
                 date: 1,
                 month: 6,
                 year: 2018,
                 zone: 4
-            },
-            id: 1
+            }
         },
         {
             tag: 'taco',
             price: 3.01,
+            id: 2,
             date: {
-                date: 1,
-                month: 5,
+                date: 2,
+                month: 6,
                 year: 2018,
                 zone: 4
             }

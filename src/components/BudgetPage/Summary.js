@@ -1,15 +1,17 @@
 import React from 'react';
 import DateDisplay from '../Common/DateDisplay'
-import {totalSpent} from '../../utils/items'
-import {daysPassed} from '../../utils/date'
+import calcRates from '../../utils/items'
 
 export default (props) => {
+    let startDate = props.account.startDate;
+    let items = props.account.items;
+    let rates = calcRates(items, startDate);
 
     return(
         <div>
-            <div>Date Started: <DateDisplay time={props.account.startDate} /></div>
-            <div>Total Spent: ${(totalSpent(props.account.items)).toFixed(2)} </div>
-            <div>Spending Rate: ${daysPassed(props.account.startDate)} per day</div>
+            <div>Date Started: <DateDisplay time={startDate} /></div>
+            <div>Total Spent: ${(rates.total).toFixed(2)} </div>
+            <div>Spending Rate: ${(rates.dailyRate).toFixed(2)} per day</div>
         </div>
     )
 }
