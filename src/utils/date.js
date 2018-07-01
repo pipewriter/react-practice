@@ -11,6 +11,8 @@ export let getCurrentDate = () =>({
 });
 
 export let daysPassed = (startDate) => { 
-    let startDateMs = Date.UTC(startDate.month, startDate.month, startDate.date)
-    let currentDateMs 
+    let startDateMs = Date.UTC(startDate.year, startDate.month, startDate.date);
+    let currentDateMs = (new Date()).getTime();
+    let different = currentDateMs - startDateMs;
+    return Math.ceil(different / 24.0 / 60.0 / 60.0 / 1000.0);
 }
