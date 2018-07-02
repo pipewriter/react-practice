@@ -44,27 +44,29 @@ export function sortItemsIntoWeeks(unsortedItems){
     let oldestPurchase = items[items.length - 1];
     let currentMonday = mondayOfJsDate(toJsDate(oldestPurchase.date));
     let weekItems = [];
+    function pushWeek(){
+        let week = {
+            startDate: fromJsDate(currentMonday),
+            key: currentMonday.valueOf(),
+            items: weekItems
+        }
+        weeks.unshift(week);
+        weekItems = [];
+        currentMonday = addDays(currentMonday, 7);
+    }
     while(items.length !== 0){
         //check last item
         let nextItem = items.pop();
         if(underWeek(currentMonday, nextItem.date)){
-            debugger;
             // add it to this week
             weekItems.unshift(nextItem);
         }else{
-            debugger;
             // place it back on items
             items.push(nextItem);
-            let week = {
-                startDate: fromJsDate(currentMonday),
-                key: currentMonday.valueOf(),
-                items: weekItems
-            }
-            weeks.unshift(week);
-            weekItems = [];
-            currentMonday = addDays(currentMonday, 7);
+            pushWeek();
         }
     }
+    pushWeek();
     return weeks;
 }
 
