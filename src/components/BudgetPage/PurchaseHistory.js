@@ -14,13 +14,13 @@ let Week = (props) => (
 )
 
 export default (props) => {
-    sortItemsIntoWeeks(props.items)
+    let weeks = sortItemsIntoWeeks(props.items);
+    console.log(weeks);
     return (
         <div>
-            {props.items.map((item) => {
-                
-            })}
-            <Week />
+            {weeks.map((week) => (
+                <Week />
+            ))}
         </div>
     )
 }
