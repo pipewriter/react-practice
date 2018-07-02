@@ -6,6 +6,7 @@ import PurchaseHistory from './BudgetPage/PurchaseHistory';
 
 //props.match.params.account to find the account name
 
+
 let account = {
     budgetName: 'ex',
     startDate: {
@@ -37,6 +38,17 @@ let account = {
                 year: 2018,
                 zone: 4
             }
+        },
+        {
+            tag: 'ok man',
+            price: 1,
+            id: 3,
+            date:{
+                date: 1,
+                month: 7,
+                year: 2018,
+                zone: 3
+            }
         }
     ]
 }
@@ -46,6 +58,17 @@ export default class BudgetPage extends React.Component{
         this.state = {
             account
         }
+        window.addEventListener("addNewItem",  (e) => {
+            console.log("asdfsd")
+            console.log(e.detail);
+            this.addItem(e.detail);
+        });
+    }
+    addItem = (item) => {
+        this.state.account.items.push(item);
+        this.setState({
+
+        })
     }
     render(){
         return(

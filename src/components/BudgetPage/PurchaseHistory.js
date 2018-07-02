@@ -8,9 +8,11 @@ let Week = (props) => (
         <div>
             <span>Week of <DateDisplay time={props.week.startDate} /><button>-</button></span>
         </div>
-        {props.week.items.map((item) => (
-            <ItemListing key={item.id} item={item} />
-        ))}
+        <div>
+            {props.week.items.map((item) => (
+                <ItemListing key={item.id} item={item} />
+            ))}
+        </div>
     </div>
 )
 

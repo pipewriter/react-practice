@@ -36,6 +36,14 @@ export default class NewItem extends React.Component{
     }
     submitNewItem = () => {
         alert(JSON.stringify(this.state))
+        window.dispatchEvent(new CustomEvent("addNewItem", {
+            detail: {
+                tag: this.state.itemsPurchased,
+                price: Number(this.state.cost),
+                id: Math.random(),
+                date:this.state.purchaseDate
+            }
+        }));
     }
     render(){
         return(
