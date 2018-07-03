@@ -66,9 +66,7 @@ export default class BudgetPage extends React.Component{
     }
     addItem = (item) => {
         this.state.account.items.push(item);
-        this.setState({
-
-        })
+        this.setState({}); //why does this work?
     }
     render(){
         return(
