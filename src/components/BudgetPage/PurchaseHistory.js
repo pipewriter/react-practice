@@ -24,7 +24,7 @@ class Week extends React.Component{
                     <span>Week of <DateDisplay time={this.props.week.startDate} /><button onClick={toggleExpand}>{buttonContent}</button></span>
                 </div>
                 <div>
-                    {this.props.week.items.map((item) => (
+                    {this.state.expanded && this.props.week.items.map((item) => (
                         <ItemListing key={item.id} item={item} />
                     ))}
                 </div>
