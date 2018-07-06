@@ -18,10 +18,14 @@ class Week extends React.Component{
         }else{
             buttonContent = '+ ' + this.props.week.items.length;
         }
+        let buttonMaybe = <button onClick={toggleExpand}>{buttonContent}</button>;
+        if(this.props.week.items.length === 0){
+            buttonMaybe = <span style={{color: 'red'}}> - 0 items purchased</span>
+        }
         return(
             <div>
                 <div>
-                    <span>Week of <DateDisplay time={this.props.week.startDate} /><button onClick={toggleExpand}>{buttonContent}</button></span>
+                    <span>Week of <DateDisplay time={this.props.week.startDate} />{buttonMaybe}</span>
                 </div>
                 <div>
                     {this.state.expanded && this.props.week.items.map((item) => (
