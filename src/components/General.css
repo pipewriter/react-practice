@@ -1,9 +1,0 @@
-.item{
-    display: flex;
-    color: #777;
-    justify-content: space-around;
-}
-.item > *{
-    width: 20%;
-    text-align: initial;
-}

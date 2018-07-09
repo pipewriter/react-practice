@@ -1,4 +1,5 @@
 import React from 'react';
+import './Form.css';
 import Field from '../Common/Field'
 import DateField from '../Common/DateField';
 import {getCurrentDate} from '../../utils/date';
@@ -26,7 +27,7 @@ class Form extends React.Component{
         });
     }
     submit = () => {
-        alert(JSON.stringify(this.state))
+        // alert(JSON.stringify(this.state))
         window.location='budget/testbudget'
     }
 
