@@ -1,4 +1,4 @@
-###Running the project
+### Running the project
 
 ```
 npm i
